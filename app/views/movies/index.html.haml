@@ -4,10 +4,11 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= link_to "Movie Title", :sort => "title"
       %th Rating
-      %th Release Date
+      %th= link_to "Release Date", :sort=> "release_date"
       %th More Info
+      //%th This is a test
   %tbody
     - @movies.each do |movie|
       %tr
@@ -15,5 +16,9 @@
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
+        //%td= link_to "This is a test", movie_path(movie)
+      
 
 = link_to 'Add new movie', new_movie_path
+// used this button to execute my database clearing function. It causes the site to crash, but it also clears the database like I want.
+//= button_to 'Delete All', @movies.destroy_all(), :method => :delete, :confirm => 'Are you sure?'

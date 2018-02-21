@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order(params[:sort])
   end
 
   def new
@@ -40,6 +40,20 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
+  end
+
+
+#I used this code to delete all the entries when I accidentally raked the database too many times. The code failed in the application, but it still cleared the database ¯\_(ツ)_/¯  
+=begin 
+  def destroy_all
+    @movies.each do |movie|
+      movie.destroy
+    end
+   
+  end
+=end
+  def sort
+    @movies.order(:title)
   end
 
 end
