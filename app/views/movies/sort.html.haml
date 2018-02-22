@@ -1,0 +1,9 @@
+-# sort.html.haml using partial
+
+%h1 Sort Existing Movies
+
+= form_tag movie_path(@movie), :method => :put do
+
+  //=@movies.sort
+  =submit_tag "I Think I'm getting closer"
+  
