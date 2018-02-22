@@ -1,7 +1,7 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
-= form_tag movies_path, :method => :get do
+= form_tag filter_movies_path, :method => :get do
   Include: 
 = check_box_tag "ratings[#{'G'}]"
 = check_box_tag "ratings[#{'PG'}]"
