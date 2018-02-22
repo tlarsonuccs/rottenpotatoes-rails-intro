@@ -1,6 +1,13 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
+= form_tag movies_path, :method => :get do
+  Include: 
+= check_box_tag "ratings[#{'G'}]"
+= check_box_tag "ratings[#{'PG'}]"
+= check_box_tag "ratings[#{'PG-13'}]"
+= check_box_tag "ratings[#{'R'}]"
+= submit_tag 'Refresh'
 %table#movies
   %thead
     %tr
@@ -19,6 +26,7 @@
         //%td= link_to "This is a test", movie_path(movie)
       
 
+
+
 = link_to 'Add new movie', new_movie_path
-// used this button to execute my database clearing function. It causes the site to crash, but it also clears the database like I want.
-//= button_to 'Delete All', @movies.destroy_all(), :method => :delete, :confirm => 'Are you sure?'
+

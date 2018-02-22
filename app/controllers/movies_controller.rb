@@ -41,7 +41,10 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
+  
+  def all_ratings
+    @all_ratings = ['G', 'PG', 'PG-13', 'R']
+  end
 
 #I used this code to delete all the entries when I accidentally raked the database too many times. The code failed in the application, but it still cleared the database ¯\_(ツ)_/¯  
 =begin 
